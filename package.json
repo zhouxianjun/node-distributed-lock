@@ -13,5 +13,10 @@
     "lock"
   ],
   "author": "Alone (Gary)",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "merge": "^1.2.0",
+    "node-zookeeper-client": "^0.2.2",
+    "uuid": "^3.0.1"
+  }
 }
