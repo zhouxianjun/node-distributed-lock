@@ -17,6 +17,7 @@
   "dependencies": {
     "merge": "^1.2.0",
     "node-zookeeper-client": "^0.2.2",
+    "q": "^1.4.1",
     "uuid": "^3.0.1"
   }
 }
