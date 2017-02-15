@@ -7,12 +7,6 @@ let service = new DistributedLockService();
 service.on('disconnected', () => {console.log('disconnected')});
 
 service.on('ready', () => {
-    service.lock('Alone').then(() => {setTimeout(() => {service.unlock('Alone')}, 5000)});
-    service.lock('Alone', err => {
-        if (err) {
-            console.log('lock failed...', err.stack);
-            return;
-        }
-        service.unlock('Alone');
-    });
+    service.lock('Gary').then((reentrantLock) => {setTimeout(() => {reentrantLock.unlock()}, 5000)}).catch(err => {console.log('lock failed', err)});
+    service.lock('Alone').then((reentrantLock) => {reentrantLock.unlock()}).catch(err => {console.log('lock failed', err)});
 });
