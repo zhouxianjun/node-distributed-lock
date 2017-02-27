@@ -1,5 +1,5 @@
 {
-  "name": "node-distributed-lock",
+  "name": "distributed-lock",
   "version": "1.0.0",
   "description": "nodejs distributed locks",
   "main": "index.js",
@@ -10,7 +10,8 @@
     "node",
     "js",
     "distributed",
-    "lock"
+    "lock",
+    "zookeeper"
   ],
   "author": "Alone (Gary)",
   "license": "ISC",
@@ -20,9 +21,7 @@
     "node-zookeeper-client": "^0.2.2",
     "q": "^1.4.1",
     "thunkify": "^2.1.2",
-    "uuid": "^3.0.1"
-  },
-  "devDependencies": {
+    "uuid": "^3.0.1",
     "tracer": "^0.8.7"
   }
 }
