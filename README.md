@@ -18,14 +18,14 @@ const DistributedLockService = DistributedLock.ZKDistributedLockService;
 let service = new DistributedLockService();
 
 // 采用链式风格
-    service.lock('Gary').then((reentrantLock) => {
-        // 5秒后解锁
-        setTimeout(() => {
-            reentrantLock.unlockSync()
-        }, 5000);
-    }).catch(err => {
-        console.log('lock failed', err)
-    });
+service.lock('Gary').then((reentrantLock) => {
+    // 5秒后解锁
+    setTimeout(() => {
+        reentrantLock.unlockSync()
+    }, 5000);
+}).catch(err => {
+    console.log('lock failed', err)
+});
 ```
 
 ## API
@@ -34,18 +34,24 @@ let service = new DistributedLockService();
 
 分布式锁服务接口.
 
-* `lock` - (`id`, `timeout`, `cb`) 锁定资源:
+#### `Promise` lock(id, [timeout = 3000], [cb])
 
-  * `id` - (String) 资源ID.
-  * `timeout` - (int - `optional`) 锁资源成功后过期时间(毫秒) 默认3000毫秒.
-  * `cb` - (Function(`error`, `reentrantLock`) - `optional`) 回调函数.
+锁定资源
 
-* `unlock` - (`locked`, `cb`) 解锁资源:
+**Arguments**
 
-  * `locked` - (DistributedReentrantLock) 锁定返回资源.
-  * `cb` - (Function(`error`) - `optional`) 回调函数.
+* id `String` - 待锁定资源ID.
+* timeout `int` - `optional` 锁资源成功后过期时间(毫秒) 默认3000毫秒.
+* cb(error, reentrantLock) `Function` - 回调函数.
 
-Return this
+#### `Promise` unlock(locked, [cb])
+
+解锁资源
+
+**Arguments**
+
+* locked `DistributedReentrantLock` - 锁定资源后的返回.
+* cb(error, reentrantLock) `Function` - 回调函数.
 
 ### aop()
 
