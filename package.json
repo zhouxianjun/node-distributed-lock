@@ -1,6 +1,6 @@
 {
   "name": "distributed-lock",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "nodejs distributed locks",
   "main": "index.js",
   "scripts": {
@@ -11,17 +11,19 @@
     "js",
     "distributed",
     "lock",
-    "zookeeper"
+    "zookeeper",
+    "redis"
   ],
   "author": "Alone (Gary)",
   "license": "ISC",
   "dependencies": {
     "co": "latest",
+    "ioredis": "^2.5.0",
     "merge": "^1.2.0",
     "node-zookeeper-client": "^0.2.2",
     "q": "^1.4.1",
     "thunkify": "^2.1.2",
-    "uuid": "^3.0.1",
-    "tracer": "^0.8.7"
+    "tracer": "^0.8.7",
+    "uuid": "^3.0.1"
   }
 }

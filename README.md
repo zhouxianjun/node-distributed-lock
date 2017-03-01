@@ -54,6 +54,14 @@ zookeeper 协议分布式锁服务实现.
 
 zookeeper 协议分布式锁处理器实现.
 
+#### RedisDistributedLockService
+
+Redis 协议分布式锁服务实现.
+
+#### RedisDistributedReentrantLock
+
+Redis 协议分布式锁处理器实现.
+
 #### setLogConfig(config)
 
 设置日志记录配置,使用 `tracer` 第三方日志服务
@@ -83,7 +91,7 @@ zookeeper 协议分布式锁处理器实现.
 
 ---
 
-### ZookeeperDistributedReentrantLock
+### ZookeeperDistributedLockService
 
 zookeeper 协议分布式锁服务实现
 
@@ -119,3 +127,35 @@ zookeeper 协议分布式锁服务实现
 #### events
 
 **connectedReadOnly、disconnected、expired、authenticationFailed、ready**
+
+---
+
+### RedisDistributedLockService
+
+Redis 协议分布式锁服务实现
+
+#### constructor(config)
+
+构造函数.
+
+**Default Config**
+
+```javascript
+{
+    retryInterval: 300,
+    area: 'distributed_lock',
+    ReentrantLock: RedisDistributedReentrantLock,
+    lockAwait: 2000,
+    redisOptions: {}
+}
+```
+
+* retryInterval `int` - 重试间隔(毫秒).
+* area `String` - redis root路径
+* ReentrantLock `DistributedReentrantLock` - 分布式锁实现
+* lockAwait `int` - 请求锁等待时间(毫秒)
+* zkOption `Object` - redis 参数
+
+#### events
+
+**connect、 ready、 error、 close、 reconnecting、 end**

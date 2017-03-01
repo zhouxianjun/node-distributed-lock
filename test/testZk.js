@@ -15,5 +15,13 @@ service.on('ready', () => {
     }).catch(err => {
         console.log('lock failed', err)
     });
-    // service.lock('Alone').then((reentrantLock) => {reentrantLock.unlockSync()}).catch(err => {console.log('lock failed', err)});
+    service.lock('Gary').then((reentrantLock) => {
+        setTimeout(() => {
+            reentrantLock.unlockSync()
+        }, 1000);
+    }).catch(err => {
+        console.log('lock failed', err)
+    });
+    service.lock('Alone').then((reentrantLock) => {setTimeout(() => {reentrantLock.unlockSync()}, 1000)}).catch(err => {console.log('lock failed', err)});
+    service.lock('Alone').then((reentrantLock) => {reentrantLock.unlockSync()}).catch(err => {console.log('lock failed', err)});
 });
