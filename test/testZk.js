@@ -2,7 +2,7 @@
  * Created by Alone on 2017/2/14.
  */
 'use strict';
-const DistributedLock = require('../lib');
+const DistributedLock = require('../index');
 const DistributedLockService = DistributedLock.ZKDistributedLockService;
 let service = new DistributedLockService();
 service.on('disconnected', () => {console.log('disconnected')});

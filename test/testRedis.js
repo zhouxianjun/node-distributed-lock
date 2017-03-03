@@ -2,7 +2,7 @@
  * Created by Alone on 2017/2/14.
  */
 'use strict';
-const DistributedLock = require('../lib');
+const DistributedLock = require('../index');
 const DistributedLockService = DistributedLock.RedisDistributedLockService;
 let service = new DistributedLockService();
 service.on('ready', () => {console.log('ready')});
