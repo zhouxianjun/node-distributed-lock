@@ -9,6 +9,8 @@ service.on('ready', () => {console.log('ready')});
 service.on('error', error => {console.log('error', error)});
 
 service.lock('Gary').then(lock => {setTimeout(() => {lock.unlockSync()}, 5000)}).catch(err => {console.error(err.stack)});
+service.haslock('Gary').then(has => {console.log(`has: ${has}`)}).catch(err => {console.error(err.stack)});
+service.haslock('Gary11').then(has => {console.log(`has: ${has}`)}).catch(err => {console.error(err.stack)});
 service.lock('Gary').catch(err => {console.error(err.stack)});
 
 service.lock('Alone').then(lock => {setTimeout(() => {lock.unlockSync()}, 1000)}).catch(err => {console.error(err.stack)});

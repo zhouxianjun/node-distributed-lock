@@ -9,6 +9,8 @@ service.on('disconnected', () => {console.log('disconnected')});
 
 service.on('ready', () => {
     service.lock('Gary').then((reentrantLock) => {
+        service.haslock('Gary').then(has => {console.log(`has: Gary ${has}`)}).catch(err => {console.error(err.stack)});
+        service.haslock('Gary11').then(has => {console.log(`has: Gary11 ${has}`)}).catch(err => {console.error(err.stack)});
         setTimeout(() => {
             reentrantLock.unlockSync()
         }, 5000);
